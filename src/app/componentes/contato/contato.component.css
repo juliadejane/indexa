@@ -1,0 +1,39 @@
+.contato_ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.contato_nome {
+  color: #212529;
+  font-family: Montserrat;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  margin-right: 2em;
+}
+
+.contato_telefone {
+  color: #212529;
+  font-family: Montserrat;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin-right: auto;
+}
+
+.div_botoes {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

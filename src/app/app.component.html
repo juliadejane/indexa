@@ -5,5 +5,10 @@
   <app-separador>
     {{ letra }}
   </app-separador>
-  }
+  @for (contato of filtrarPorLetra(letra); track contato.id) {
+  <app-contato
+    [nome]="contato.nome"
+    [telefone]="contato.telefone"
+  ></app-contato>
+  } }
 </app-container>
