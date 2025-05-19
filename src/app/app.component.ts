@@ -6,6 +6,7 @@ import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component'
 import { SeparadorComponent } from './componentes/separador/separador.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
 import agenda from './agenda.json';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import agenda from './agenda.json';
     CabecalhoComponent,
     SeparadorComponent,
     ContatoComponent,
+    FormsModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -25,9 +27,26 @@ export class AppComponent {
   alfabeto: string = 'abcdefghijklmnopqrstuvwxyz';
   contatos: Contato[] = agenda;
 
-  filtrarPorLetra(letra: string): Contato[] {
+  filtroPorTexto: string = '';
+
+  removerAcentos(texto: string): string {
+    return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  filtrarContatosPorTexto(): Contato[] {
+    if (!this.filtroPorTexto) {
+      return this.contatos;
+    }
     return this.contatos.filter((contato) => {
-      return contato.nome.toLowerCase().startsWith(letra);
+      return this.removerAcentos(contato.nome)
+        .toLowerCase()
+        .includes(this.filtroPorTexto.toLowerCase());
+    });
+  }
+
+  filtrarPorLetra(letra: string): Contato[] {
+    return this.filtrarContatosPorTexto().filter((contato) => {
+      return this.removerAcentos(contato.nome).toLowerCase().startsWith(letra);
     });
   }
 }
