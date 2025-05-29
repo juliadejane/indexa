@@ -8,10 +8,9 @@ describe('FormularioContatoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormularioContatoComponent]
-    })
-    .compileComponents();
-    
+      imports: [FormularioContatoComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(FormularioContatoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
