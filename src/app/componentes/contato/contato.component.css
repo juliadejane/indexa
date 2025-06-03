@@ -36,3 +36,15 @@ button {
   border: none;
   cursor: pointer;
 }
+
+.contato ul img {
+  cursor: pointer;
+}
+
+.contato .avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  position: relative;
+  right: 1em;
+}

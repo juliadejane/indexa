@@ -1,10 +1,16 @@
-<section>
+<section class="contato">
   <ul class="contato_ul">
+    <img
+      [src]="avatar"
+      alt="avatar"
+      class="avatar"
+      [routerLink]="['/perfil-contato', id]"
+    />
     <li class="contato_nome">{{ nome }}</li>
     <li class="contato_telefone">{{ telefone }}</li>
     <div class="div_botoes">
       <li>
-        <button>
+        <button [routerLink]="['/formulario', id]">
           <img src="/assets/pencil-square.png" alt="" />
         </button>
       </li>
